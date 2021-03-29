@@ -20,13 +20,21 @@ public class Book {
     }
     
     public void setPrice(double p){
-        p = price;
+        price = p;
     }
     
     public void setTitle(String t){
-        t = title;
+        title = t;
     }
-    
+
+    public double getPrice() {
+        return price;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
     @Override
     public String toString(){
        return "Title: " + title + ", Price: $" + price;
