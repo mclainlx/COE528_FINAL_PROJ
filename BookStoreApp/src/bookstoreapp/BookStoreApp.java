@@ -20,7 +20,7 @@ public class BookStoreApp extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("fxmlData/FXMLDocument.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("fxmlData/logInScene.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setResizable(false); //makes main window not resizable
