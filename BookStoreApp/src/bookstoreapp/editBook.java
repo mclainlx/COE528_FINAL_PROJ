@@ -44,6 +44,29 @@ public class editBook {
         }
     }
     
+    public void loadBooks(){
+        try {
+            String tempstr;
+            String[] arrOfStr ;
+            Scanner scan = new Scanner(myfi);
+            while(scan.hasNextLine()){
+                tempstr = scan.nextLine();
+                arrOfStr = tempstr.split("\\|", 6);
+                double price;
+                price = Double.parseDouble(arrOfStr[3]);
+                String title;
+                title = arrOfStr[1];
+                Book fileBook = new Book(title, price);
+                books.add(fileBook);
+            }
+            
+        } 
+        catch (IOException e) {
+                System.out.println("An error occurred");
+                e.printStackTrace();
+        }
+    }  
+    
     public void displayBooks(){
         System.out.println(books);
     }
@@ -51,6 +74,7 @@ public class editBook {
     //Here I am simply testing the methods imlplemented in this class 
     public static void main(String[] args) {
         editBook ed = new editBook();
+        ed.loadBooks();
         ed.addBook();
         ed.displayBooks();
     }
