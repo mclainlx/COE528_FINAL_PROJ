@@ -5,6 +5,10 @@
  */
 package bookstoreapp;
 import java.util.ArrayList;
+import java.io.FileWriter;
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
 
 /**
  *
@@ -12,21 +16,42 @@ import java.util.ArrayList;
  */
 public class editBook {
     ArrayList<Book> books = new ArrayList<>();
+    File myfi = new File("Books.txt");
     
-    //Right now hard coded, will comeback and make it use user input
-    public void addBook(double price, String title){
-        Book b = new Book(price, title);
+    //It now takes user input, now need to implement this in UI
+    public void addBook(){
+        String title;
+        double price;
+        String contents; //I use this variable to store the contents of the Book object
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter price of book: ");
+        price = scan.nextDouble();
+        System.out.println("Enter Title of book: ");
+        title = scan.next();
+        title += scan.nextLine(); // Using this and the other scan method in tandem lets you take a whole sentence as input
+        Book b = new Book(title, price);
         books.add(b);
+        
+        try { // This whole setup allows me to write the book object to the file books.txt
+            FileWriter myWriter = new FileWriter(myfi, true);  // This constructor allows me to append to the file so that the data in it doesn't get overwritten
+            contents = b.toString(); //by turning the book object b into a string I can easily write it into the file
+            myWriter.write(contents);
+            myWriter.close();
+        } 
+        catch (IOException e) { // This is to catch certain errors that result from accessing files
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
     
     public void displayBooks(){
         System.out.println(books);
     }
     
-    //Testing the methods here, REMOVE LATER
+    //Here I am simply testing the methods imlplemented in this class 
     public static void main(String[] args) {
         editBook ed = new editBook();
-        ed.addBook(15.00, "1984");
+        ed.addBook();
         ed.displayBooks();
     }
 }
