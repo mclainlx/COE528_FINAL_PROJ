@@ -43,8 +43,8 @@ public class editBook {
             e.printStackTrace();
         }
     }
-    
-    public void loadBooks(){
+    // If there is an extra empty line in the file the method will throw an error, will fix that later
+    public void loadBooks(){ //Populates the arrayList with the data from Books.txt
         try {
             String tempstr;
             String[] arrOfStr ;
