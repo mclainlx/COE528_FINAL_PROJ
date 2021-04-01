@@ -13,7 +13,7 @@ public class Book {
     double price;
     String title;
     
-    public Book(double price, String title){
+    public Book(String title, double price){
         this.price = price;
         this.title = title;
          
