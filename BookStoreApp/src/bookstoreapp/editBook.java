@@ -9,6 +9,8 @@ import java.io.FileWriter;
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
+import java.io.BufferedWriter;
+
 
 /**
  *
@@ -43,8 +45,32 @@ public class editBook {
             e.printStackTrace();
         }
     }
-    // If there is an extra empty line in the file the method will throw an error, will fix that later
-    public void loadBooks(){ //Populates the arrayList with the data from Books.txt
+    
+    public void removeBook(){
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Please enter the index of the book you would like to delete, starting from 0 at the top: ");
+        int a = scan.nextInt();
+        books.remove(a);
+        writeToFile(books);
+        
+    }
+    
+    public static void writeToFile(ArrayList<Book> books){
+        try{
+            BufferedWriter writer = new BufferedWriter(new FileWriter("Books.txt"));
+            for(Book x:books){
+                writer.write(x.toString());
+            
+            }
+            writer.close();
+        }
+        catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+    
+    public void loadBooks(){
         try {
             String tempstr;
             String[] arrOfStr ;
@@ -65,7 +91,7 @@ public class editBook {
                 System.out.println("An error occurred");
                 e.printStackTrace();
         }
-    }  
+    }
     
     public void displayBooks(){
         System.out.println(books);
@@ -75,7 +101,8 @@ public class editBook {
     public static void main(String[] args) {
         editBook ed = new editBook();
         ed.loadBooks();
-        ed.addBook();
+        ed.displayBooks();
+        ed.removeBook();
         ed.displayBooks();
     }
 }
