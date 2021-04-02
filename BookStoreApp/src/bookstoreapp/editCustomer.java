@@ -17,7 +17,7 @@ import java.util.Scanner;
  *
  * @author
  */
-class EditCustomer {
+class editCustomer {
     
     ArrayList<Customer> customr = new ArrayList<>();
     File cusFile = new File("customer.txt");
