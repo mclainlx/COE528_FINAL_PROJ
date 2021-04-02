@@ -20,7 +20,7 @@ public class AdminSceneController implements Initializable {
     @FXML Button logoutButton1;
     @FXML Button logoutButton2;
 
-    EditBook bookEditor;
+    editBook bookEditor;
 
     @FXML
     private void removeBook(ActionEvent event){
@@ -63,7 +63,7 @@ public class AdminSceneController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        bookEditor = new EditBook();
+        bookEditor = new editBook();
         bookEditor.loadBooks();
         for (Book b:bookEditor.getBooks()
              ) {
