@@ -56,6 +56,16 @@ public class logInSceneController implements Initializable {
         }else{
             if(customerLogin(user, pass)){
                 //set scene to customer scene
+
+                try { //try to load adminScene fxml file, if it fails then print out error and stuff
+                    Parent customerSceneRoot = FXMLLoader.load(getClass().getResource("fxmlData/customerScene.fxml"));
+                    logInButton.getScene().setRoot(customerSceneRoot); //set the scene to the new scene or if failed to load, don't switch scene
+                    customerSceneRoot.getScene().getWindow().sizeToScene();//resizes window to scene size
+                }catch (IOException e) {
+                    System.out.println("failed to load customerScene fxml file");
+                    e.printStackTrace();
+                }
+
                 System.out.println("logging in as customer");
             }else{
                 badLoginLabel.setVisible(true);
