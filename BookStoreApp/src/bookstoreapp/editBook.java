@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.io.FileWriter;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 import java.io.BufferedWriter;
 
@@ -19,7 +20,7 @@ import java.io.BufferedWriter;
  */
 public class editBook {
     ArrayList<Book> books = new ArrayList<>();
-    File myfi = new File("Books.txt");
+    File myfi = new File("books.txt");
     
     //It now takes user input, now need to implement this in UI
     public void addBook(){
@@ -71,6 +72,11 @@ public class editBook {
         books.remove(a);
         writeToFile(books);
         
+    }
+
+    public void removeBook(List<Book> list){
+        books.removeAll(list);
+        writeToFile(books);
     }
     
     public static void writeToFile(ArrayList<Book> books){

@@ -4,6 +4,8 @@ import java.io.IOException;
 import javafx.fxml.Initializable;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,7 +29,10 @@ public class AdminSceneController implements Initializable {
 
     @FXML
     private void removeBook(ActionEvent event){
-
+        List<Book> selectedItems = new ArrayList<>(bookListView.getSelectionModel().getSelectedItems());
+        bookListView.getItems().removeAll(selectedItems);
+        bookEditor.removeBook(selectedItems);
+        refresh();
     }
 
     @FXML
