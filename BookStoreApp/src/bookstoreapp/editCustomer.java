@@ -76,12 +76,12 @@ class EditCustomer {
             Scanner scan = new Scanner(cusFile);
             while(scan.hasNextLine()){
                 tempstr = scan.nextLine();
-                arrOfStr = tempstr.split("\\ |", 6);
+                arrOfStr = tempstr.split(" ", 3);
                 String user;
-                user = arrOfStr[3];
+                user = arrOfStr[0];
                 String password;
                 password = arrOfStr[1];
-                int pts;
+                int pts = Integer.parseInt(arrOfStr[2]);
                 pts = Integer.parseInt(arrOfStr[2]);
                 Customer fileCustomer = new Customer(user, password, pts);
                 customr.add(fileCustomer);
