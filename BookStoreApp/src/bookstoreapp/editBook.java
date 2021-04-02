@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package bookstoreapp;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.io.FileWriter;
 import java.io.File;
@@ -95,6 +96,10 @@ public class editBook {
     
     public void displayBooks(){
         System.out.println(books);
+    }
+
+    public ArrayList<Book> getBooks(){
+        return books;
     }
     
     //Here I am simply testing the methods imlplemented in this class 
