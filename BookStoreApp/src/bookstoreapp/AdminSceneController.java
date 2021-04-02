@@ -25,8 +25,11 @@ public class AdminSceneController implements Initializable {
     @FXML public TextField priceTextField;
     @FXML Button logoutButton1;
     @FXML Button logoutButton2;
+    @FXML public TextField customerUser;
+    @FXML public TextField customerPass;
 
     editBook bookEditor;
+    editCustomer customerEditor;
 
     @FXML
     private void onLogout(ActionEvent event) {
@@ -91,6 +94,29 @@ public class AdminSceneController implements Initializable {
         priceTextField.setText(Double.toString(b.getPrice()));
         titleTextField.setText(b.getTitle());
     }
+    
+        @FXML
+    private void addCustomer(ActionEvent e){
+        String userName = customerUser.getText();
+        String password = customerPass.getText();
+        customerEditor.addCustomer(userName, password);
+        refresh();
+    }
+    
+    @FXML
+    public void removeCustomer(ActionEvent event){
+        List<Customer> selectedItems = new ArrayList(customerListView.getSelectionModel().getSelectedItems());
+        customerListView.getItems().removeAll(selectedItems);
+        customerEditor.removeCustomer(selectedItems);
+        refresh();
+    }
+    
+    @FXML
+    public void editCustomer(ActionEvent e){
+        Customer c = (Customer) customerListView.getSelectionModel().getSelectedItem();
+        customerUser.setText(c.getUsername());
+        customerPass.setText(c.getPassword());
+    }
 
     @FXML
     public void applyEdit(ActionEvent e){
@@ -103,6 +129,12 @@ public class AdminSceneController implements Initializable {
         }else{
             System.out.println("bad price");
         }
+        
+        Customer c = (Customer) customerListView.getSelectionModel().getSelectedItem();
+        c.setUsername(customerUser.getText());
+        c.setPassword(customerPass.getText());
+        customerEditor.saveChanges();
+        refresh();
     }
 
     @Override
@@ -113,6 +145,11 @@ public class AdminSceneController implements Initializable {
              ) {
             bookListView.getItems().add(b);
         }
-
+        
+        customerEditor = new editCustomer();
+        customerEditor.loadCustomers();
+        for (Customer c:customerEditor.getCustomers()){
+            customerListView.getItems().add(c);
+        }
     }
 }
