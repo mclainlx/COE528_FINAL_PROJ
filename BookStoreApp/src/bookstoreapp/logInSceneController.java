@@ -54,12 +54,16 @@ public class logInSceneController implements Initializable {
 
             System.out.println("logging in as admin");
         }else{
-            if(customerLogin(user, pass)){
+            Customer currentCustomer;
+            if((currentCustomer = customerLogin(user, pass)) != null){
                 //set scene to customer scene
 
                 try { //try to load adminScene fxml file, if it fails then print out error and stuff
-                    Parent customerSceneRoot = FXMLLoader.load(getClass().getResource("fxmlData/customerScene.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("fxmlData/customerScene.fxml"));
+                    Parent customerSceneRoot = loader.load();
                     logInButton.getScene().setRoot(customerSceneRoot); //set the scene to the new scene or if failed to load, don't switch scene
+                    CustomerSceneController c = (CustomerSceneController) loader.getController();
+                    c.setCurrentCustomer(currentCustomer);
                     customerSceneRoot.getScene().getWindow().sizeToScene();//resizes window to scene size
                 }catch (IOException e) {
                     System.out.println("failed to load customerScene fxml file");
@@ -74,8 +78,18 @@ public class logInSceneController implements Initializable {
 
     }
 
-    private boolean customerLogin(String user, String pass){
-        return false;
+    private Customer customerLogin(String user, String pass){
+        editCustomer ec = new editCustomer();
+        ec.loadCustomers();
+
+        for (Customer c:ec.getCustomers()
+             ) {
+            if(c.getUsername().equals(user) && c.getPassword().equals(pass)){
+                return c;
+            }
+        }
+
+        return null;
     }
     
     @Override
