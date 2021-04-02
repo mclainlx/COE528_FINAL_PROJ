@@ -105,7 +105,7 @@ public class editBook {
             Scanner scan = new Scanner(myfi);
             while(scan.hasNextLine()){
                 tempstr = scan.nextLine();
-                arrOfStr = tempstr.split("\\ |", 6);
+                arrOfStr = tempstr.split("\\|", 6);
                 double price;
                 price = Double.parseDouble(arrOfStr[3]);
                 String title;
