@@ -53,4 +53,8 @@ public class Customer {
         }
     }
     
+    @Override
+    public String toString(){
+        return username + " "  + password + " " + points + "\n";
+    }    
 }
