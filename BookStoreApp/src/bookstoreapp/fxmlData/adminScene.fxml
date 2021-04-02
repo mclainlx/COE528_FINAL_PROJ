@@ -120,10 +120,10 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <TextField promptText="Name" GridPane.columnIndex="1" />
-                              <TextField promptText="Price" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="titleTextField" promptText="Name" GridPane.columnIndex="1" />
+                              <TextField fx:id="priceTextField" promptText="Price" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <Button fx:id="logoutButton2" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onLogout" prefHeight="25.0" prefWidth="125.0" text="Logout" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="199.0" text="Name of Book:">
+                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="199.0" text="Title of Book:">
                                  <font>
                                     <Font size="19.0" />
                                  </font></Label>

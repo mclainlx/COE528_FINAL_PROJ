@@ -11,12 +11,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 
 public class AdminSceneController implements Initializable {
 
 
     @FXML public ListView customerListView;
     @FXML public ListView bookListView;
+    @FXML public TextField titleTextField;
+    @FXML public TextField priceTextField;
     @FXML Button logoutButton1;
     @FXML Button logoutButton2;
 
@@ -44,7 +47,7 @@ public class AdminSceneController implements Initializable {
     
     }
     @FXML
-    private void refresh(ActionEvent e){ //refreshes listviews within the admin screen
+    private void refresh(){ //refreshes listviews within the admin screen
         bookListView.getItems().clear();
         for (Book b:bookEditor.getBooks()
         ) {
@@ -57,8 +60,23 @@ public class AdminSceneController implements Initializable {
 
     @FXML
     private void addBook(ActionEvent e){ //adds a book using the EditBook object that we declared earlier
-        bookEditor.addBook();
-        System.out.println("Adding a book");
+        String title = titleTextField.getText();
+        if(isDouble(priceTextField.getText())){
+            bookEditor.addBook(title, Double.parseDouble(priceTextField.getText()));
+            refresh();
+            System.out.println("Adding a book");
+        }else{
+            System.out.println("could not add book - price is bad");
+        }
+    }
+
+    boolean isDouble(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
     
     @Override

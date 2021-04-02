@@ -11,6 +11,6 @@ import java.util.ArrayList;
  *
  * @author kasey
  */
-public class EditCustomer {
+class EditCustomer {
     
 }
