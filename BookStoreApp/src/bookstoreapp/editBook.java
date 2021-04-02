@@ -46,6 +46,23 @@ public class editBook {
             e.printStackTrace();
         }
     }
+
+    public void addBook(String title, double price){
+        String contents;
+        Book b = new Book(title, price);
+        books.add(b);
+
+        try { // This whole setup allows me to write the book object to the file books.txt
+            FileWriter myWriter = new FileWriter(myfi, true);  // This constructor allows me to append to the file so that the data in it doesn't get overwritten
+            contents = b.toString(); //by turning the book object b into a string I can easily write it into the file
+            myWriter.write(contents);
+            myWriter.close();
+        }
+        catch (IOException e) { // This is to catch certain errors that result from accessing files
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
     
     public void removeBook(){
         Scanner scan = new Scanner(System.in);
