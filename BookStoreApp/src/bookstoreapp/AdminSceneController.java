@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
 
 public class AdminSceneController implements Initializable {
@@ -26,14 +27,6 @@ public class AdminSceneController implements Initializable {
     @FXML Button logoutButton2;
 
     editBook bookEditor;
-
-    @FXML
-    private void removeBook(ActionEvent event){
-        List<Book> selectedItems = new ArrayList<>(bookListView.getSelectionModel().getSelectedItems());
-        bookListView.getItems().removeAll(selectedItems);
-        bookEditor.removeBook(selectedItems);
-        refresh();
-    }
 
     @FXML
     private void onLogout(ActionEvent event) {
@@ -83,7 +76,35 @@ public class AdminSceneController implements Initializable {
             return false;
         }
     }
-    
+
+    @FXML
+    private void removeBook(ActionEvent event){
+        List<Book> selectedItems = new ArrayList<>(bookListView.getSelectionModel().getSelectedItems());
+        bookListView.getItems().removeAll(selectedItems);
+        bookEditor.removeBook(selectedItems);
+        refresh();
+    }
+
+    @FXML
+    public void editBook(ActionEvent e){
+        Book b = (Book) bookListView.getSelectionModel().getSelectedItem();
+        priceTextField.setText(Double.toString(b.getPrice()));
+        titleTextField.setText(b.getTitle());
+    }
+
+    @FXML
+    public void applyEdit(ActionEvent e){
+        Book b = (Book) bookListView.getSelectionModel().getSelectedItem();
+        if(isDouble(priceTextField.getText())){
+            b.setPrice(Double.parseDouble(priceTextField.getText()));
+            b.setTitle(titleTextField.getText());
+            bookEditor.saveChanges();
+            refresh();
+        }else{
+            System.out.println("bad price");
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         bookEditor = new editBook();
@@ -92,5 +113,6 @@ public class AdminSceneController implements Initializable {
              ) {
             bookListView.getItems().add(b);
         }
+
     }
 }

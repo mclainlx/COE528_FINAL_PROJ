@@ -101,8 +101,8 @@
                                     </GridPane>
                                     <VBox alignment="CENTER" layoutX="8.0" layoutY="216.0" prefHeight="58.0" prefWidth="146.0">
                                        <children>
-                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0" text="Edit Book" />
-                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0" text="Apply Changes" />
+                                          <Button mnemonicParsing="false" onAction="#editBook" prefHeight="25.0" prefWidth="141.0" text="Edit Book" />
+                                          <Button mnemonicParsing="false" onAction="#applyEdit" prefHeight="25.0" prefWidth="141.0" text="Apply Changes" />
                                        </children>
                                     </VBox>
                                  </children>

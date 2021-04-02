@@ -78,6 +78,10 @@ public class editBook {
         books.removeAll(list);
         writeToFile(books);
     }
+
+    public void saveChanges(){//Alex: added this to write changes to file after editing a book
+        writeToFile(books);
+    }
     
     public static void writeToFile(ArrayList<Book> books){
         try{
