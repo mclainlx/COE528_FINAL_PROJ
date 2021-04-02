@@ -69,8 +69,8 @@ class EditCustomer {
         return customr;
     }
     
-        public void loadCustomers(){
-        try {
+        public void loadCustomers(){ // This works by splitting the String written in the text file by the spaces between each value
+        try {                        // Therefore putting spaces in a username or password will mess it up so we will make it an illegal character
             String tempstr;
             String[] arrOfStr ;
             Scanner scan = new Scanner(cusFile);
@@ -81,7 +81,7 @@ class EditCustomer {
                 user = arrOfStr[0];
                 String password;
                 password = arrOfStr[1];
-                int pts = Integer.parseInt(arrOfStr[2]);
+                int pts;
                 pts = Integer.parseInt(arrOfStr[2]);
                 Customer fileCustomer = new Customer(user, password, pts);
                 customr.add(fileCustomer);
