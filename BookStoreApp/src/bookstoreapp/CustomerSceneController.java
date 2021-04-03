@@ -1,5 +1,6 @@
 package bookstoreapp;
 
+import bookstoreapp.fxmlData.CheckoutSceneController;
 import java.io.IOException;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -8,6 +9,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.cell.CheckBoxListCell;
 import javafx.util.Callback;
+import java.util.ArrayList;
+import java.util.List;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,7 +29,8 @@ public class CustomerSceneController implements Initializable {
     @FXML public ListView bookListView;
     private Customer currentCustomer = null;
     editBook bookEditor = new editBook();
-
+    editCart cart = new editCart();
+    
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         bookListView.setCellFactory(CheckBoxListCell.forListView(new Callback<Book, ObservableValue<Boolean>>() {
@@ -67,4 +71,31 @@ public class CustomerSceneController implements Initializable {
         this.currentCustomer = currentCustomer;
         welcomeLabel.setText("Welcome " + currentCustomer.getUsername() + ". You have: " + currentCustomer.getPoints() + " points. Your status is: " + currentCustomer.customerStatus(currentCustomer.getPoints()));
     }
+    
+    private void addCart(){
+        List<Book> selectedItems = new ArrayList<>(bookListView.getSelectionModel().getSelectedItems());
+        cart.addToCart(selectedItems);
+    }
+    
+    public void goToCheckout(ActionEvent e)throws IOException{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("fxmlData/checkoutScene.fxml"));
+        Parent checkoutSceneRoot = loader.load();
+        cashPurchaseButton.getScene().setRoot(checkoutSceneRoot);
+        addCart();
+        
+        CheckoutSceneController controller = loader.getController();
+        controller.initCart(cart.getTotalPrice());
+    }
+    
+    public void redeemPointCheckout(ActionEvent e)throws IOException{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("fxmlData/checkoutScene.fxml"));
+        Parent checkoutSceneRoot = loader.load();
+        pointPurchaseButton.getScene().setRoot(checkoutSceneRoot);
+        addCart();
+        CheckoutSceneController controller = loader.getController();
+        cart.getTotalPrice();
+        controller.initCart(cart.redeemPoints());
+    }    
 }
