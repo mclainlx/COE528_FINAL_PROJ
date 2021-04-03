@@ -12,7 +12,8 @@ import java.util.List;
  * @author 
  */
 public class editCart {
-    
+    int points;
+    double totalPrice = 0;
     ArrayList<Book> booksToBuy = new ArrayList<>();
     
     public void addToCart(List<Book> list){
@@ -27,4 +28,29 @@ public class editCart {
     public ArrayList<Book> getCart(){
         return booksToBuy;
     }
+    
+    public double getTotalPrice(){
+            for(int i = 0; i < booksToBuy.size(); i++){
+            totalPrice = totalPrice + booksToBuy.get(i).getPrice();
+        }
+        return totalPrice;
+    }
+    
+    public void setPoints(int po){
+        po = points;
+    }
+    
+    public double redeemPoints(){
+        while(points >= 100){
+            totalPrice = totalPrice - 1;
+            points = points - 100;
+        }
+        return totalPrice;
+    }
+    
+    public void Checkout(){
+        booksToBuy.clear();
+        totalPrice = 0;
+    }
+    
 }
