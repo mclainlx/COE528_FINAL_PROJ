@@ -50,6 +50,11 @@ public class AdminSceneController implements Initializable {
     @FXML
     private void refresh(){ //refreshes listviews within the admin screen
         bookListView.getItems().clear();
+        customerListView.getItems().clear();
+        for (Customer c:customerEditor.getCustomers()
+             ) {
+            customerListView.getItems().add(c);
+        }
         for (Book b:bookEditor.getBooks()
         ) {
             bookListView.getItems().add(b);
