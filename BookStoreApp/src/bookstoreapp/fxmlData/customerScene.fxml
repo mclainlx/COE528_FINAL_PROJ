@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstoreapp.CustomerSceneController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstoreapp.CustomerSceneController">
    <children>
       <BorderPane prefHeight="400.0" prefWidth="600.0">
          <top>
@@ -22,13 +22,13 @@
             </Label>
          </top>
          <center>
-            <ListView fx:id="bookListView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+            <ListView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
          </center></BorderPane>
       <SplitPane dividerPositions="0.7481549815498154" layoutY="37.0" orientation="VERTICAL" prefHeight="373.0" prefWidth="610.0">
          <items>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <ListView prefHeight="274.0" prefWidth="610.0" />
+                  <ListView fx:id="bookListView" prefHeight="274.0" prefWidth="610.0" />
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
