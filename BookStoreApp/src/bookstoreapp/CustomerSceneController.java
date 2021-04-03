@@ -1,5 +1,6 @@
 package bookstoreapp;
 
+import java.io.IOException;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,8 +10,14 @@ import javafx.util.Callback;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
 
 public class CustomerSceneController implements Initializable {
+    
+    @FXML Button logoutButton;
 
     @FXML public ListView bookListView;
     private Customer currentCustomer = null;
@@ -27,6 +34,19 @@ public class CustomerSceneController implements Initializable {
         ));
         bookEditor.loadBooks();
         refresh();
+    }
+    
+    @FXML
+    private void onLogout(ActionEvent event) {
+    
+        try {
+            Parent logInSceneRoot = FXMLLoader.load(getClass().getResource("fxmlData/logInScene.fxml"));
+            logoutButton.getScene().setRoot(logInSceneRoot);
+            logInSceneRoot.getScene().getWindow().sizeToScene();
+        }catch (IOException e) {
+            System.out.println("failed to load LoginScene fxml file");
+            e.printStackTrace();
+        }
     }
 
     private void refresh(){ //refreshes listviews within the admin screen

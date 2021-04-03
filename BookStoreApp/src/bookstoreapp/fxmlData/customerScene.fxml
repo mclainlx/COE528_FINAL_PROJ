@@ -43,9 +43,9 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Button fx:id="logoutButton1" mnemonicParsing="false" onAction="#onLogout" prefHeight="50.0" prefWidth="155.0" text="Logout" GridPane.columnIndex="2" />
-                        <Button fx:id="logoutButton111" mnemonicParsing="false" onAction="#onLogout" prefHeight="50.0" prefWidth="155.0" text="Redeem Points and Buy" GridPane.columnIndex="1" />
-                        <Button fx:id="logoutButton11" mnemonicParsing="false" onAction="#onLogout" prefHeight="50.0" prefWidth="155.0" text="Buy" />
+                        <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#onLogout" prefHeight="50.0" prefWidth="155.0" text="Logout" GridPane.columnIndex="2" />
+                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="155.0" text="Redeem Points and Buy" GridPane.columnIndex="1" />
+                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="155.0" text="Buy" />
                      </children>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
