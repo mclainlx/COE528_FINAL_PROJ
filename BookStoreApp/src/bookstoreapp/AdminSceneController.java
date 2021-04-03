@@ -136,10 +136,12 @@ public class AdminSceneController implements Initializable {
         }
         
         Customer c = (Customer) customerListView.getSelectionModel().getSelectedItem();
+        if(c != null){
         c.setUsername(customerUser.getText());
         c.setPassword(customerPass.getText());
         customerEditor.saveChangesCus();
         refresh();
+        }
     }
 
     @Override
