@@ -18,6 +18,8 @@ import javafx.scene.control.Button;
 public class CustomerSceneController implements Initializable {
     
     @FXML Button logoutButton;
+    @FXML Button pointPurchaseButton;
+    @FXML Button cashPurchaseButton;
 
     @FXML public ListView bookListView;
     private Customer currentCustomer = null;
