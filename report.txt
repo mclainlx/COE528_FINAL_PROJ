@@ -1,0 +1,9 @@
+
+
+Describe a use-case following the format discussed in class
+
+
+
+
+
+Describe the rationale behind using the State Design Pattern
