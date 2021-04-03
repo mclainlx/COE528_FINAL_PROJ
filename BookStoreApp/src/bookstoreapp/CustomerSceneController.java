@@ -4,6 +4,7 @@ import java.io.IOException;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.cell.CheckBoxListCell;
 import javafx.util.Callback;
@@ -16,7 +17,8 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 
 public class CustomerSceneController implements Initializable {
-    
+
+    @FXML public Label welcomeLabel;
     @FXML Button logoutButton;
     @FXML Button pointPurchaseButton;
     @FXML Button cashPurchaseButton;
@@ -63,5 +65,6 @@ public class CustomerSceneController implements Initializable {
 
     public void setCurrentCustomer(Customer currentCustomer) {
         this.currentCustomer = currentCustomer;
+        welcomeLabel.setText("Welcome " + currentCustomer.getUsername() + ". You have: " + currentCustomer.getPoints() + " points. Your status is: " + currentCustomer.customerStatus(currentCustomer.getPoints()));
     }
 }
