@@ -30,7 +30,8 @@ public class editCart {
     }
     
     public double getTotalPrice(){
-            for(int i = 0; i < booksToBuy.size(); i++){
+        totalPrice = 0;    
+        for(int i = 0; i < booksToBuy.size(); i++){
             totalPrice = totalPrice + booksToBuy.get(i).getPrice();
         }
         return totalPrice;
