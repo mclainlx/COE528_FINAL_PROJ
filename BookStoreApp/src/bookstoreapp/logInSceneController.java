@@ -48,7 +48,7 @@ public class logInSceneController implements Initializable {
                 logInButton.getScene().setRoot(adminSceneRoot); //set the scene to the new scene or if failed to load, don't switch scene
                 adminSceneRoot.getScene().getWindow().sizeToScene();//resizes window to scene size
             }catch (IOException e) {
-                System.out.println("failed to load adminScene fxml file");
+                System.out.println("error: failed to load adminScene fxml file");
                 e.printStackTrace();
             }
 
