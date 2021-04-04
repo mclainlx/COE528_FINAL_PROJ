@@ -73,7 +73,7 @@ public class CustomerSceneController implements Initializable {
     }
     
     private void addCart(){
-        List<Book> selectedItems = new ArrayList<>(bookListView.getSelectionModel().getSelectedItems());
+        List<Book> selectedItems = bookListView.getSelectionModel().getSelectedItems();
         cart.addToCart(selectedItems);
         for (Book selectedItem : selectedItems) {
             System.out.println(selectedItem);
