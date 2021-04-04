@@ -5,6 +5,7 @@
  */
 package bookstoreapp.fxmlData;
 
+import bookstoreapp.Customer;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -18,6 +19,8 @@ import javafx.scene.control.Label;
  */
 public class CheckoutSceneController implements Initializable {
     @FXML public Label totPrice;
+    @FXML public Label points;
+    @FXML public Label stat;
     /**
      * Initializes the controller class.
      */
@@ -29,6 +32,13 @@ public class CheckoutSceneController implements Initializable {
     public void initCart(double d){ //takes price data from cart
         String s = Double.toString(d);
         totPrice.setText(s);
+       
+    }
+    
+    public void initCustomer(Customer c){
+        String s = Integer.toString(c.getPoints());
+        points.setText(s);
+        stat.setText(c.customerStatus(c.getPoints()));
     }
     
 }
