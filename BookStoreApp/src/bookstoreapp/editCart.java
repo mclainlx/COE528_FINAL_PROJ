@@ -20,9 +20,17 @@ public class editCart {
         booksToBuy.addAll(list);
         
     }
+
+    public void addToCart(Book b){
+        booksToBuy.add(b);
+    }
     
     public void removeFromCart(List<Book> list){
         booksToBuy.removeAll(list);
+    }
+
+    public void removeFromCart(Book b){
+        booksToBuy.remove(b);
     }
     
     public ArrayList<Book> getCart(){

@@ -65,8 +65,10 @@ public class CustomerSceneController implements Initializable {
             b.selectedProperty().addListener((obs, wasOn, isNowOn) ->{
                 if(isNowOn){
                     System.out.println("Added "+b.getTitle()+" to cart");
+                    cart.addToCart(b);
                 }else if(!isNowOn){
                     System.out.println("Removed "+b.getTitle()+" from cart");
+                    cart.removeFromCart(b);
                 }
             });
             bookListView.getItems().add(b);
