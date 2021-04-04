@@ -12,7 +12,7 @@
       <Label fx:id="points" layoutX="179.0" layoutY="183.0" text="Label" />
       <Label layoutX="273.0" layoutY="183.0" text="Status:" />
       <Label fx:id="stat" layoutX="335.0" layoutY="183.0" text="Label" />
-      <Button layoutX="264.0" layoutY="297.0" mnemonicParsing="false" text="Logout" />
+      <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#onLogout" layoutX="264.0" layoutY="297.0"  text="Logout" />
       <Label layoutX="260.0" layoutY="14.0" text="CHECKOUT" />
    </children>
 </AnchorPane>
