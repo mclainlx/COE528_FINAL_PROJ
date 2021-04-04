@@ -1,3 +1,2 @@
 Username: test Password: test Points: 0
-Username:  Password:  Points: 0
 Username: yoo Password: yoo Points: 0
