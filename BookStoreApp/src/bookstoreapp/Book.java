@@ -5,6 +5,9 @@
  */
 package bookstoreapp;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+
 /**
  *
  * @author karankarwal
@@ -12,7 +15,21 @@ package bookstoreapp;
 public class Book {
     double price;
     String title;
-    
+
+    private final BooleanProperty selected = new SimpleBooleanProperty();
+
+    public BooleanProperty getSelected(){
+        return selected;
+    }
+
+    public final boolean isSelected(){
+        return selected.get();
+    }
+
+    public final void setSelected(boolean s){
+        selected.set(s);
+    }
+
     public Book(String title, double price){
         this.price = price;
         this.title = title;
