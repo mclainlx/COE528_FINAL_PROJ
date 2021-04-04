@@ -36,10 +36,14 @@ public class AdminSceneController implements Initializable {
     
             try {
                 Parent logInSceneRoot = FXMLLoader.load(getClass().getResource("fxmlData/logInScene.fxml"));
-                logoutButton1.getScene().setRoot(logInSceneRoot); //set the scene to the new scene or if failed to load, don't switch scene
-                logInSceneRoot.getScene().getWindow().sizeToScene();//resizes window to scene size
-                logoutButton2.getScene().setRoot(logInSceneRoot); //set the scene to the new scene or if failed to load, don't switch scene
-                logInSceneRoot.getScene().getWindow().sizeToScene();//resizes window to scene size
+                if(logoutButton1.getScene() != null) {
+                    logoutButton1.getScene().setRoot(logInSceneRoot); //set the scene to the new scene or if failed to load, don't switch scene
+                    logInSceneRoot.getScene().getWindow().sizeToScene();//resizes window to scene size
+                }
+                if(logoutButton2.getScene() != null) {
+                    logoutButton2.getScene().setRoot(logInSceneRoot); //set the scene to the new scene or if failed to load, don't switch scene
+                    logInSceneRoot.getScene().getWindow().sizeToScene();//resizes window to scene size
+                }
             }catch (IOException e) {
                 System.out.println("failed to load LoginScene fxml file");
                 e.printStackTrace();
