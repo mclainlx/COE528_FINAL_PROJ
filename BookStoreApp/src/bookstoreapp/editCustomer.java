@@ -78,11 +78,11 @@ class editCustomer {
                 tempstr = scan.nextLine();
                 arrOfStr = tempstr.split(" ", 6);
                 String user;
-                user = arrOfStr[1];
+                user = arrOfStr[1].substring(1, arrOfStr[1].length() - 1);
                 String password;
-                password = arrOfStr[3];
+                password = arrOfStr[3].substring(1, arrOfStr[3].length() - 1);
                 int pts;
-                pts = Integer.parseInt(arrOfStr[5]);
+                pts = Integer.parseInt(arrOfStr[5].substring(1, arrOfStr[5].length() - 1));
                 Customer fileCustomer = new Customer(user, password, pts);
                 customr.add(fileCustomer);
             }
