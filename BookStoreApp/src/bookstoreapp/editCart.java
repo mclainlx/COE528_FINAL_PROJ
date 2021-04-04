@@ -48,7 +48,9 @@ public class editCart {
         while(points >= 100){
             totalPrice = totalPrice - 1;
             points = points - 100;
-        }
+            if(totalPrice < 1){
+                break;
+            }        }
         return totalPrice;
     }
     
