@@ -107,7 +107,7 @@ public class editBook {
                 tempstr = scan.nextLine();
                 arrOfStr = tempstr.split("\\|", 6);
                 double price;
-                price = Double.parseDouble(arrOfStr[3]);
+                price = Double.parseDouble(arrOfStr[3].substring(1));
                 String title;
                 title = arrOfStr[1];
                 Book fileBook = new Book(title, price);

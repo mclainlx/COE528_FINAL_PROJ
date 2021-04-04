@@ -70,6 +70,7 @@ public class AdminSceneController implements Initializable {
         if(isDouble(priceTextField.getText())){
             bookEditor.addBook(title, Double.parseDouble(priceTextField.getText()));
             refresh();
+            clearBookFields();
             System.out.println("Adding a book");
         }else{
             System.out.println("could not add book - price is bad");
@@ -102,9 +103,12 @@ public class AdminSceneController implements Initializable {
     
         @FXML
     private void addCustomer(ActionEvent e){
-        String userName = customerUser.getText();
-        String password = customerPass.getText();
-        customerEditor.addCustomer(userName, password);
+        if(!customerUser.getText().equals("") && !customerPass.getText().equals("")) {
+            String userName = customerUser.getText();
+            String password = customerPass.getText();
+            customerEditor.addCustomer(userName, password);
+            clearCustomerFields();
+        }
         refresh();
     }
     
@@ -126,7 +130,7 @@ public class AdminSceneController implements Initializable {
     @FXML
     public void applyEdit(ActionEvent e){
         Book b = (Book) bookListView.getSelectionModel().getSelectedItem();
-        if(isDouble(priceTextField.getText())){
+        if(isDouble(priceTextField.getText()) && !priceTextField.getText().equals("") && !titleTextField.getText().equals("")){
             b.setPrice(Double.parseDouble(priceTextField.getText()));
             b.setTitle(titleTextField.getText());
             bookEditor.saveChanges();
@@ -136,11 +140,32 @@ public class AdminSceneController implements Initializable {
         }
         
         Customer c = (Customer) customerListView.getSelectionModel().getSelectedItem();
-        if(c != null){
+        if(c != null && !customerUser.getText().equals("") && !customerPass.getText().equals("")){
         c.setUsername(customerUser.getText());
         c.setPassword(customerPass.getText());
         customerEditor.saveChangesCus();
         refresh();
+
+        }
+        priceTextField.clear();
+        titleTextField.clear();
+        customerPass.clear();
+        customerUser.clear();
+    }
+
+    @FXML
+    public void clearBookFields(){
+        if (priceTextField != null && titleTextField != null) {
+            priceTextField.clear();
+            titleTextField.clear();
+        }
+    }
+
+    @FXML
+    public void clearCustomerFields(){
+        if (customerPass != null && customerUser != null) {
+            customerUser.clear();
+            customerPass.clear();
         }
     }
 
