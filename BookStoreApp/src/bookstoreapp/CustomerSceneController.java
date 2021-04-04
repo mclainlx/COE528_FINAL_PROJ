@@ -1,6 +1,6 @@
 package bookstoreapp;
 
-import bookstoreapp.fxmlData.CheckoutSceneController;
+//import bookstoreapp.fxmlData.checkoutScene.fxml;
 import java.io.IOException;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;

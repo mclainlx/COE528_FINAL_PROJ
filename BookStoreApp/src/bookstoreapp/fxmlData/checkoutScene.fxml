@@ -4,7 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstoreapp.fxmlData.CheckoutSceneController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bookstoreapp.CheckoutSceneController">
    <children>
       <Label fx:id="totPrice" layoutX="269.0" layoutY="85.0" prefHeight="23.0" prefWidth="43.0" text="  Label" />
       <Label layoutX="124.0" layoutY="85.0" prefHeight="23.0" prefWidth="69.0" text="Total Price: " />
