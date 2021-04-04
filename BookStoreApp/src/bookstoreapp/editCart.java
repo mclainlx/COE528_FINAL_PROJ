@@ -31,11 +31,14 @@ public class editCart {
     
     public double getTotalPrice(){
         totalPrice = 0;    
-        for(int i = 0; i < booksToBuy.size(); i++){
-            totalPrice = totalPrice + booksToBuy.get(i).getPrice();
+        
+        for(Book bk : booksToBuy){
+            totalPrice += bk.getPrice();
         }
+        System.out.println("total price " + totalPrice);
         return totalPrice;
     }
+    
     
     public void setPoints(int po){
         po = points;
