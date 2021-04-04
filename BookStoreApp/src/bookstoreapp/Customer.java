@@ -55,6 +55,6 @@ public class Customer {
     
     @Override
     public String toString(){
-        return "Username: " + username + " Password: "  + password + " Points: " + points + "\n";
+        return "Username: '" + username + "' \tPassword: '"  + password + "' \tPoints: '" + points + "'\n";
     }    
 }

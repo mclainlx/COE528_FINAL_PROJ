@@ -1,1 +1,2 @@
 Title: |help|, Price: $|10.0|
+Title: |test|, Price: $|59.99|
