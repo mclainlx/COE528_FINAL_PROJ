@@ -77,7 +77,7 @@ public class CustomerSceneController implements Initializable {
         cart.addToCart(selectedItems);
     }
     
-    public void goToCheckout(ActionEvent e)throws IOException{
+       public void goToCheckout(ActionEvent e)throws IOException{
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("fxmlData/checkoutScene.fxml"));
         Parent checkoutSceneRoot = loader.load();
@@ -86,6 +86,7 @@ public class CustomerSceneController implements Initializable {
         
         CheckoutSceneController controller = loader.getController();
         controller.initCart(cart.getTotalPrice());
+        controller.initCustomer(currentCustomer);
     }
     
     public void redeemPointCheckout(ActionEvent e)throws IOException{
@@ -97,5 +98,5 @@ public class CustomerSceneController implements Initializable {
         CheckoutSceneController controller = loader.getController();
         cart.getTotalPrice();
         controller.initCart(cart.redeemPoints());
-    }    
-}
+        controller.initCustomer(currentCustomer);
+    }}
