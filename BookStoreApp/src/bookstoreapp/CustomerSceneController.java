@@ -89,6 +89,8 @@ public class CustomerSceneController implements Initializable {
         
         CheckoutSceneController controller = loader.getController();
         controller.initCart(cart.getTotalPrice());
+        int x = (int) (cart.getTotalPrice() * 10);
+        currentCustomer.setPoints(x);
         controller.initCustomer(currentCustomer);
     }
     
