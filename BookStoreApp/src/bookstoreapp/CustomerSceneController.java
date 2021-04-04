@@ -3,6 +3,7 @@ package bookstoreapp;
 //import bookstoreapp.fxmlData.checkoutScene.fxml;
 import java.io.IOException;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -26,6 +27,7 @@ public class CustomerSceneController implements Initializable {
     @FXML Button pointPurchaseButton;
     @FXML Button cashPurchaseButton;
 
+
     @FXML public ListView bookListView;
     private Customer currentCustomer = null;
     editBook bookEditor = new editBook();
@@ -36,10 +38,9 @@ public class CustomerSceneController implements Initializable {
         bookListView.setCellFactory(CheckBoxListCell.forListView(new Callback<Book, ObservableValue<Boolean>>() {
             @Override
             public ObservableValue<Boolean> call(Book book) {
-                return null; 
+                return book.selectedProperty();
             }
-        }
-        ));
+        }));
         bookEditor.loadBooks();
         refresh();
     }
@@ -61,6 +62,13 @@ public class CustomerSceneController implements Initializable {
         bookListView.getItems().clear();
         for (Book b:bookEditor.getBooks()
         ) {
+            b.selectedProperty().addListener((obs, wasOn, isNowOn) ->{
+                if(isNowOn){
+                    System.out.println("Added "+b.getTitle()+" to cart");
+                }else if(!isNowOn){
+                    System.out.println("Removed "+b.getTitle()+" from cart");
+                }
+            });
             bookListView.getItems().add(b);
         }
         bookListView.refresh();
@@ -74,6 +82,7 @@ public class CustomerSceneController implements Initializable {
     
     private void addCart(){
         List<Book> selectedItems = bookListView.getSelectionModel().getSelectedItems();
+        //ObservableList<Book> si = bookListView.getItems().filtered(Book::isSelected);
         cart.addToCart(selectedItems);
         for (Book selectedItem : selectedItems) {
             System.out.println(selectedItem);

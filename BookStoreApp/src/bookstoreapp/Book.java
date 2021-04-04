@@ -18,16 +18,16 @@ public class Book {
 
     private final BooleanProperty selected = new SimpleBooleanProperty();
 
-    public BooleanProperty getSelected(){
+    public BooleanProperty selectedProperty(){
         return selected;
     }
 
     public final boolean isSelected(){
-        return selected.get();
+        return selectedProperty().get();
     }
 
     public final void setSelected(boolean s){
-        selected.set(s);
+        selectedProperty().set(s);
     }
 
     public Book(String title, double price){
