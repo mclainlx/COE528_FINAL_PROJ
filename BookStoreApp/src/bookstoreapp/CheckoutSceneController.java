@@ -25,7 +25,7 @@ public class CheckoutSceneController implements Initializable {
     @FXML public Label totPrice;
     @FXML public Label points;
     @FXML public Label stat;
-    @ FXML Button logoutButton;
+    @FXML Button logoutButton;
     /**
      * Initializes the controller class.
      */
