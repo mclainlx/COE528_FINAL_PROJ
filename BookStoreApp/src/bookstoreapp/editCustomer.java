@@ -40,7 +40,7 @@ class editCustomer {
     
     public static void writeToFileCus(ArrayList<Customer> customers){
         try{
-            BufferedWriter writer = new BufferedWriter(new FileWriter("customers.txt"));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("customer.txt"));
             for(Customer x : customers){
                 System.out.println(x);
                 writer.write(x.toString());
