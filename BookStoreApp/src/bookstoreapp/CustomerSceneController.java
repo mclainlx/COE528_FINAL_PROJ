@@ -103,11 +103,13 @@ public class CustomerSceneController implements Initializable {
         
         CheckoutSceneController controller = loader.getController();
         controller.initCart(cart.getTotalPrice());
-        int x = (int) (cart.getTotalPrice() * 10);
-        customerEditor.updateCus(currentCustomer, x);
-        currentCustomer.setPoints(x);
         controller.initCustomer(currentCustomer);
-        System.out.println(currentCustomer.getPoints());
+
+        //int x = (int) (cart.getTotalPrice() * 10);
+        //customerEditor.updateCus(currentCustomer, x);
+        //currentCustomer.setPoints(x);
+        //controller.initCustomer(currentCustomer);
+        //System.out.println(currentCustomer.getPoints());
         //customerEditor.updateCus(currentCustomer, x);
         //System.out.println(customerEditor);
         //customerEditor.saveChangesCus();

@@ -42,6 +42,7 @@ class editCustomer {
         try{
             BufferedWriter writer = new BufferedWriter(new FileWriter("customers.txt"));
             for(Customer x : customers){
+                System.out.println(x);
                 writer.write(x.toString());
             
             }
@@ -95,9 +96,10 @@ class editCustomer {
     }
     
     public void updateCus(Customer cus, int pts){
-        for (Customer customer : this.customr) {
-            if(cus.equals(customer)){
-            cus.setPoints(pts);
+        for (Customer customer : customr) {
+            if(cus.getUsername().equals(customer.getUsername())){
+                System.out.println("matched " + pts);
+            customer.setPoints(pts);
             saveChangesCus();
             }  
         }

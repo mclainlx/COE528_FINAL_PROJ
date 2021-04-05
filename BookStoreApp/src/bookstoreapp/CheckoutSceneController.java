@@ -26,6 +26,9 @@ public class CheckoutSceneController implements Initializable {
     @FXML public Label points;
     @FXML public Label stat;
     @FXML Button logoutButton;
+
+    Customer currentCustomer;
+    int bonusPoints;
     /**
      * Initializes the controller class.
      */
@@ -49,14 +52,20 @@ public class CheckoutSceneController implements Initializable {
     }    
     
     public void initCart(double d){ //takes price data from cart
+        bonusPoints = (int) d * 10;
         String s = Double.toString(d);
         totPrice.setText(s);
-       
+        points.setText(Integer.toString(bonusPoints));
     }
     
     public void initCustomer(Customer c){
+        currentCustomer = c;
+        editCustomer ec = new editCustomer();
+        ec.loadCustomers();
+        ec.updateCus(c, c.getPoints() + (bonusPoints));
+
         String s = Integer.toString(c.getPoints());
-        points.setText(s);
+        //points.setText(s);
         stat.setText(c.customerStatus(c.getPoints()));
     }
     
