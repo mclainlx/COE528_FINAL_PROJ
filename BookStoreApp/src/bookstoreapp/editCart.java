@@ -49,7 +49,11 @@ public class editCart {
     
     
     public void setPoints(int po){
-        po = points;
+        points = po;
+    }
+    
+    public int getPoints(){
+        return points;
     }
     
     public double redeemPoints(){
