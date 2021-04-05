@@ -32,6 +32,7 @@ public class CustomerSceneController implements Initializable {
     private Customer currentCustomer = null;
     editBook bookEditor = new editBook();
     editCart cart = new editCart();
+    editCustomer customerEditor;
     
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -43,6 +44,8 @@ public class CustomerSceneController implements Initializable {
         }));
         bookEditor.loadBooks();
         refresh();
+        customerEditor = new editCustomer();
+        customerEditor.loadCustomers();
     }
     
     @FXML
@@ -101,8 +104,13 @@ public class CustomerSceneController implements Initializable {
         CheckoutSceneController controller = loader.getController();
         controller.initCart(cart.getTotalPrice());
         int x = (int) (cart.getTotalPrice() * 10);
+        customerEditor.updateCus(currentCustomer, x);
         currentCustomer.setPoints(x);
         controller.initCustomer(currentCustomer);
+        System.out.println(currentCustomer.getPoints());
+        //customerEditor.updateCus(currentCustomer, x);
+        //System.out.println(customerEditor);
+        //customerEditor.saveChangesCus();
     }
     
     public void redeemPointCheckout(ActionEvent e)throws IOException{

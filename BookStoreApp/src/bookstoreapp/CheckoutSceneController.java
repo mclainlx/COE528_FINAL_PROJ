@@ -45,6 +45,7 @@ public class CheckoutSceneController implements Initializable {
             System.out.println("failed to load LoginScene fxml file");
             e.printStackTrace();
         }
+        
     }    
     
     public void initCart(double d){ //takes price data from cart

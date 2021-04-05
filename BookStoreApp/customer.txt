@@ -1,2 +1,1 @@
-Username: test Password: test Points: 0
-Username: yoo Password: yoo Points: 0
+Username: 'fff' 	Password: 'fff' 	Points: '0'

@@ -94,7 +94,14 @@ class editCustomer {
         }
     }
     
-    
+    public void updateCus(Customer cus, int pts){
+        for (Customer customer : this.customr) {
+            if(cus.equals(customer)){
+            cus.setPoints(pts);
+            saveChangesCus();
+            }  
+        }
+    }
     
     
 }
