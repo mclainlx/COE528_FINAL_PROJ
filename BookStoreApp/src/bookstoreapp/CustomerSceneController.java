@@ -123,6 +123,8 @@ public class CustomerSceneController implements Initializable {
         addCart();
         CheckoutSceneController controller = loader.getController();
         cart.getTotalPrice();
+        cart.setPoints(currentCustomer.getPoints());        
         controller.initCart(cart.redeemPoints());
+        currentCustomer.setPoints(cart.getPoints());        
         controller.initCustomer(currentCustomer);
     }}
